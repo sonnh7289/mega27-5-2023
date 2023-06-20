@@ -104,7 +104,7 @@ def loginAccount():
     password = request.form.get('password')
     connection= mysql.connector.connect(**config)
     mycursor = connection.cursor()
-    mycursor.execute(f"SELECT * FROM user where email={email}")
+    mycursor.execute(f"SELECT * FROM user where email= '$email' ")
     ketquaEmail = mycursor.fetchall()
     phantupro = mycursor.rowcount
     thong_tin = {}
@@ -283,7 +283,7 @@ def get_1000comments():
         print(f"Comment Text: {comment_text}")
         print(f"Comment Date: {comment_date}")
         print()
-@FLASKapp.route("/login", methods=["POST"])
+@FLASKapp.route("/postcomment", methods=["POST"])
 def post_comments():
     connection= mysql.connector.connect(**config)
     cursor = connection.cursor()
@@ -295,7 +295,7 @@ def post_comments():
     cursor.close()
     connection.close()
     
-@FLASKapp.route("/login", methods=["POST"])
+@FLASKapp.route("/postImange", methods=["POST"])
 async def post_image(request: Request):
     connection= mysql.connector.connect(**config)
     cursor = connection.cursor()
