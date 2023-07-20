@@ -1,11 +1,11 @@
 import asyncio, json
 import mysql.connector
 
-_LINK_DATA_MANGA = r"D:/Code Python/ThinkDiff/mysql_anime_manga/data/ListManga.json"
+_LINK_DATA_MANGA = r"/root/son/mangareader/truyen-tranh/ListManga.json"
 
 async def insertMangaIntoTable(id_manga, title_manga, descript_manga, link_image_poster_link_upload,link_image_poster_link_goc,
 							   link_detail_manga, list_categories, list_chapter, rate, so_luong_view, status, tac_gia, id_server):
-	connect_mysql = mysql.connector.connect(host="localhost", user="root", passwd="", db="manga_teach")
+	connect_mysql = mysql.connector.connect(host="localhost", user="root", passwd="mcso@123#@!", db="manga_teach")
 	cursor = connect_mysql.cursor()
 	
 	try:
